@@ -1,18 +1,18 @@
 pragma circom 2.0.3;
 
 template Main() {
-  signal input x;
-  signal x_squared;
-  signal x_cubed;
   signal output out;
+  signal input balances[3];
+  signal input votes[3];
+  signal input aggregation;
+  
 
-  x_squared <-- x * x;
-  x_cubed <-- x_squared * x;
-  out <-- x_cubed - x + 7;
+  signal int0 <== balances[0] * votes[0];
+  signal int1 <== balances[1] * votes[1];
+  signal int2 <== balances[2] * votes[2];
 
-  x_squared === x * x;
-  x_cubed === x_squared * x;
-  out === x_cubed - x + 7;
+  out <== int0 + int1 + int2;
+  out === aggregation;
 }
 
-component main {public [x]} = Main();
+component main {public [balances, votes, aggregation]} = Main();

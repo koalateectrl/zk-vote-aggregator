@@ -1,6 +1,6 @@
-# ZK Example using Circom and Solidity with Hardhat
+# ZK Vote Aggregation Example
 
-A basic circom project using [Hardhat](https://github.com/nomiclabs/hardhat), [hardhat-circom](https://github.com/projectsophon/hardhat-circom), and [snark-js](https://github.com/iden3/snarkjs).
+A basic vote aggregation project using [Hardhat](https://github.com/nomiclabs/hardhat), [hardhat-circom](https://github.com/projectsophon/hardhat-circom), and [snark-js](https://github.com/iden3/snarkjs).
 
 ## Install
 
@@ -34,6 +34,9 @@ To interact with the deployed contract, we need to generate the appropriate call
 
 The output of the last command will be the calldata needed for Solidity. Note that the value of b is a 2 x 2 array and will need to be split up into two inputs of 1 x 2 arrays to pass into the Solidity function. Also, note that all values generated are in hex and may need to be converted into decimal before inputing as function arguments.
 
-## Acknowledgements
+## Todo
 
-Circuit Circom code taken from [0xPARC](https://github.com/0xPARC/circom-starter)
+1. Rewrite circuit using for loop and var, not just signals.
+2. Rewrite `ZK.sol` for gas savings (less read/write from storage).
+3. Test cases
+4. Check gas savings compared to without SNARK.
